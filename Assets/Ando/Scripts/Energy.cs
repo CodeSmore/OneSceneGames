@@ -9,11 +9,9 @@ public class Energy : MonoBehaviour {
 
     private float timer = 0;
     private float secondsPerCycle = 10;
-    private int amountPerCycle = 1;
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -22,8 +20,8 @@ public class Energy : MonoBehaviour {
 
         if (timer >= secondsPerCycle)
         {
-            StatsController.energy += amountPerCycle;
-            Mathf.Clamp(StatsController.energy, 0, 100);
+            StatsController.energy += StatsController.energyRegen;
+            Mathf.Clamp(StatsController.energy, 0, StatsController.maxEnergy);
             timer = 0;
         }
 
@@ -32,7 +30,9 @@ public class Energy : MonoBehaviour {
 
     void UpdateUI()
     {
+        Mathf.Clamp(StatsController.energy, 0, StatsController.maxEnergy);
+
         energyWheel.fillAmount = timer / secondsPerCycle;
-        energyPercent.text = StatsController.energy.ToString() + "%";
+        energyPercent.text = StatsController.energy.ToString() + "/" + StatsController.maxEnergy.ToString();
     }
 }

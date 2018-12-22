@@ -83,7 +83,7 @@ public class MissionController : MonoBehaviour {
                 missionStats[index].SetMissionEnabled(true);
 
                 var baseDuration = missionStats[index].BaseDuration;
-                var updatedDuration = Mathf.Clamp(baseDuration - (supp.CurrentPower * 0.25f), 0, baseDuration);
+                var updatedDuration = Mathf.Clamp(baseDuration - (supp.CurrentPower * 0.25f), 0.1f, baseDuration);
                 missionStats[index].SetUpdatedDuration(updatedDuration);
 
                 supp.Assigned = true;

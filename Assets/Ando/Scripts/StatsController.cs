@@ -6,10 +6,14 @@ public class StatsController : MonoBehaviour {
 
     public static int currency { get; set; }
     public static int energy { get; set; }
+    public static int maxEnergy { get; set; }
+    public static int energyRegen { get; set; }
 
-    private void Start()
+    private void Awake()
     {
-        currency = 100;
-        energy = 10;
+        currency = 0;
+        energy = 0;
+        maxEnergy = 100;
+        energyRegen = 1;
     }
 }

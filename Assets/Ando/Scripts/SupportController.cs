@@ -51,6 +51,7 @@ public class Support
     public string Name;
     public int Level;
     public int BasePower;
+    public int BaseCost;
     [HideInInspector]
     public int CurrentPower;
     public int CurrentEnergy;
@@ -67,12 +68,12 @@ public class Support
     public void LevelUp()
     {
         Level++;
-        CurrentPower = BasePower + Level;
+        CurrentPower = Level * BasePower;
     }
 
     public int GetUpgradeCost()
     {
-        var EnergyToLevelUp = Level * 13 * BasePower;
+        var EnergyToLevelUp = BaseCost * (Level + 1);
 
         var upgradeCost = EnergyToLevelUp - CurrentEnergy;
 

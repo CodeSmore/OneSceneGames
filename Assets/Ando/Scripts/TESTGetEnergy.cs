@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TESTGetEnergy : MonoBehaviour {
 
+    public bool Enabled = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,6 +18,10 @@ public class TESTGetEnergy : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        StatsController.energy += 100;
+        if (Enabled)
+        {
+            StatsController.energy += 100;
+            StatsController.currency += 10000;
+        }   
     }
 }

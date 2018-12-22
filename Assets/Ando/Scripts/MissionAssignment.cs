@@ -20,6 +20,7 @@ public class MissionAssignment : MonoBehaviour {
     void Start () {
         supportController = GameObject.FindObjectOfType<SupportController>();
 
+        Debug.Log(missionAssignmentDropdowns.Length);
         UpdateDropdownOptions();
 	}
 	
